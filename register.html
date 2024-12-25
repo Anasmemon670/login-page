@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+          body{
+            display: flex;
+            justify-content: center;
+            /* background: url('img.jpg') no-repeat; */
+            background-color: darkslategray;
+            background-position: center;
+            background-size: cover;
+            align-items: center;
+            min-height: 100vh;
+        }
+         .wrapper{
+            position: relative;
+            width: 410px;
+            height: 460px;
+            background: transparent;
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 2px solid rgba(255 , 255 , 255 , .5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0 , 0 , 0 , .5);
+            overflow: hidden;
+        }
+        .wrapper .box-register{
+            width: 100%;
+            padding: 40px;
+        }
+        /* .wrapper .box-register{
+            display: none;
+        } */
+        .box-register h2{
+            font-size: 2em;
+            color: #162918;
+            text-align: center;
+        }
+        .input-box{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-bottom: 2px solid #162918;
+            /* row-gap: 50px; */
+            margin: 30px 0;
+        }
+        .input-box label{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            color: #162938;
+            font-weight: 500;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .input-box input:focus~label,
+        .input-box input:valid~label{
+            top: 5px;
+        }
+        .input-box input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            font-weight: 600;
+            color: #162938;
+            padding: p 35px 0 5px;
+        }
+        .input-box .icon{
+            position: relative;
+            right: 8px;
+            font-size: 1.2em;
+            color: #162938;
+            line-height: 57px;
+        }
+        .wrapper .icon-cross{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            background: #162938;
+            font-size: 2em;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom-left-radius: 20px;
+            cursor: pointer;
+            z-index: 1;
+
+        }
+        .Remember-forget{
+            font-size: .9em;
+            color: #162938;
+            font-weight: 500;
+            margin: 15px 0 15px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .Remember-forget label input{
+            accent-color: #162938;
+            margin-right: 3px;
+        }
+        .Remember-forget a{
+            text-decoration: none;
+            color: #162938;
+        }
+        .Remember-forget a:hover{
+            text-decoration: underline;
+        }
+        .btn{
+            width: 100%;
+            height: 45px;
+            background-color: #162938;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 1e,;
+            font-weight: 500;
+        }
+        .login-register{
+            font-size: .9em;
+            font-weight: 500;
+            color: #162938;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+        .login-register p .register{
+            color: #162938;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .login-register p .register:hover{
+            text-decoration: underline;
+        }
+    </style>
+    <div class="wrapper">
+        <span class="icon-cross">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="box-register">
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input id="input1" type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input id="input2" type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input id="input3" type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="Remember-forget">
+                    <label><input type="checkbox">
+                    agree to the terms & conditions</label>
+                    <!-- <a href="#">Forget Password?</a> -->
+                </div>
+                <button onclick="GoToSignUpPage()" type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Don't have an account? 
+                        <a href="login.html" class="register">Login</a>
+                    </p>
+                </div>
+     
+            </form>
+        </div>
+    </div>
+    <script>
+    function GoToSignUpPage(){
+        let UserName = document.getElementById("input1").value;
+        localStorage.setItem("User Name :" , UserName);
+
+        let UserEmail = document.getElementById("input2").value;
+        localStorage.setItem("User Email :" , UserEmail);
+
+        let UserPass = document.getElementById("input3").value;
+        localStorage.setItem("User Password :" , UserPass);
+
+        alert("YOU ARE SIGN UP THIS PAGE")
+
+        // document.getElementById("result").innerHTML = result;
+    }
+  
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
